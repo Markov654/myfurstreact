@@ -1,11 +1,15 @@
+
 body{
   background-color: rgb(230, 230, 241);
+  padding: 0;
 }
 .App {
   color: brown;
   text-align: center;
+  background-color: chartreuse;
 }
 
 p{
   color: yellow;
+  background-color: rgb(30, 56, 3);
 }

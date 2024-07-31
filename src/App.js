@@ -1,54 +1,48 @@
 import React, {Component} from "react";
 import "./App.css";
 
+import ListReact from "./LIstReact";
 
 
-class App extends Component{
-  render() {
-    return(
-         <div className="App">
-          <Header title ='Furst' />
-          <Content color = "violet">This is mql bay fall</Content>
-          <Content color = "green">This is mql bay fall</Content>
-          <Content color = "blue">This is mql bay fall</Content>
-          <Content color = "broun">This is mql bay fall</Content>
-          <Footer></Footer>
-        </div>
-    );
+
+class App extends Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      messages: [
+               {autohor: "Ivo", content: 'Hi'},
+               {autohor: "djon", content: 'Hi! how are you?'},
+               {autohor: "Ivo", content: 'Hi Emm are you ok?'},
+               {autohor: "Emma", content: 'Hi are you buzzy now?'},
+               {autohor: "Ivo", content: 'Hi i am fain'},
+      ]
+    };
   }
-}
 
-class Header extends Component{
-  render() {
+  renderMessagas(){
+    const messageElements = this.state.messages.map((messageObj, index) => {
+      return <p key={index}><b>{messageObj.autohor}:</b>{messageObj.content}</p>
+    });
+    return messageElements;
+  }
+  render(){
     return(
-      <div className="App">
-      <h1> My React App {this.props.title}</h1>
-      <p> This is my mission to write react</p>
+      <div>
+        {this.renderMessagas()}
       </div>
-    );
+    )
   }
 }
 
-class Content extends Component{
-  render(){
-    return(
-       <div style={{color: this.props.color}}>
-        <i>{this.props.children}</i>
-       </div>
-    );
-  }
-}
 
-class Footer extends Component{
-  render(){
-    return(
-      <>
-      <br></br>
-      <hr></hr>
-      <small>This is evethig friends</small>
-      </>
-    );
-  }
-}
+
+
+
+
+
+
+
+
 
 export default App;
